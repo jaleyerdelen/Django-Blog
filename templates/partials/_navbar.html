@@ -1,12 +1,12 @@
 <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
       <div class="container">
-        <a class="navbar-brand" href="">Blogapp</a>
+        <a class="navbar-brand" href="{% url 'home' %}">Blogapp</a>
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" href="">Home</a>
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Blogs</a>
+            <a class="nav-link" href="{% url 'blogs' %}">Blogs</a>
           </li>
         </ul>
       </div>
