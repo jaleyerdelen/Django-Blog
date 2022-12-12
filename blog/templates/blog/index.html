@@ -13,8 +13,14 @@
           {% include 'partials/_categories.html'%} 
         </div>
         <div class="col-9">
-          {% include 'blog/partials/_blog.html'%}
-          {% include 'blog/partials/_blog.html'%}
-          {% include 'blog/partials/_blog.html'%}
-          {% include 'blog/partials/_blog.html'%}
+          <h1>homepage</h1>
+          {% for blog in blogs %}
+            {% if blog.is_active %}
+              {% include 'blog/partials/_blog.html'%}
+            {% endif %}
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+  
 {% endblock %}
