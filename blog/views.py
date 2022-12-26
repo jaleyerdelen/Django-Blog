@@ -1,4 +1,5 @@
 from django.shortcuts import HttpResponse, render
+from blog.models import Blog
 
 data = {
     "blogs":[
@@ -32,13 +33,13 @@ data = {
 # Create your views here.
 def index(request):
     context = {
-        "blogs":data["blogs"]
+        "blogs": Blog.objects.filter(is_active=True, is_home=True)
     }
     return render(request, "blog/index.html", context)
 
 def blogs(request):
     context = {
-        "blogs":data["blogs"]
+        "blogs": Blog.objects.filter(is_active=True)
     }
     return render(request,"blog/blogs.html", context)
 
@@ -47,15 +48,10 @@ def blog_details(request, id):
     selectedBlog = None
  
     for blog in blogs:
-        if blog["id"] == id:
-            selectedBlog = blog
-
-    #Comprehension
-    # blogs = data["blogs"]
-    # selectedBlog = [blog for blog in blogs if blog["id"] == id[0]]
+        blog = Blog.objects.get(id=id)
 
     return render(request,"blog/blog-details.html", {
-        "blog":selectedBlog
+        "blog":blog
     })
 
 
