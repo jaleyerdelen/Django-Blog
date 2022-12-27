@@ -45,8 +45,7 @@ def blogs(request):
 
 def blog_details(request, id):
     blogs = data["blogs"]
-    selectedBlog = None
- 
+    
     for blog in blogs:
         blog = Blog.objects.get(id=id)
 
