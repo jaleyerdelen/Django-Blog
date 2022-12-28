@@ -1,11 +1,5 @@
 <div class="list-group">
-            <a class="list-group-item list-group-item-action" href=""
-              >Programlama</a
-            >
-            <a class="list-group-item list-group-item-action" href=""
-              >Web Programlama</a
-            >
-            <a class="list-group-item list-group-item-action" href=""
-              >Mobil Uygulamalar</a
-            >
-          </div>
+  {% for category in categories %}
+  <a class="list-group-item list-group-item-action" href="{% url 'blogs_by_category' category.slug %}">{{category.name|title}}</a>
+  {% endfor %}
+</div>
