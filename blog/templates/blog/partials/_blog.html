@@ -10,7 +10,7 @@
                     <a href="{% url 'blog_details' blog.slug %}">{{ blog.title }}</a>
                   </h5>
                   <p class="card-text">
-                    {{ blog.description }}
+                    {{ blog.description|striptags|slice:"0:50" }}
                   </p>
                 </div>
               </div>
