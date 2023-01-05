@@ -9,11 +9,15 @@
         <div class="col-9">
             <h1>All Blogs</h1>
             <hr>
+        {% if blogs|length > 0 %}    
            {% for blog in blogs %}
             {% if blog.is_active  %}
               {% include 'blog/partials/_blog.html'%}
             {% endif %}
            {% endfor %}
+        {% else %}
+            <div class="alert alert-warning">No Blogs</div>
+        {% endif %}
           </div>
         </div>
       </div>
