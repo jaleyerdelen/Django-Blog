@@ -28,8 +28,58 @@
     </div>
     {% block content %}
     <div class="container mt-3">
+      <div class="col">
         <h1>Register</h1>
     </div>
+    <hr>
+        <div class="mb-3">
+          <form method="POST">
+            {% csrf_token %}
+            {% if error %}
+              <div class="alert alert-danger">
+                {{error}}
+              </div>
+            {% endif %}
+            <div class="mb-3">
+              <label for="username" class="for-label">Username</label>
+              <input type="text" class="form-control" name="username" value="{{username}}">
+            </div>
+
+              <div class="mb-3">
+              <label for="email" class="for-label">Email</label>
+              <input type="email" class="form-control" name="email" value="{{email}}">
+            </div>
+
+            <div class="row mb-3">
+              <div class="col">
+                <label for="firstname" class="for-label">Firstname</label>
+              <input type="text" class="form-control" name="firstname" value="{{firstname}}">
+              </div>
+
+              <div class="col">
+                <label for="lastname" class="for-label">Lastname</label>
+              <input type="text" class="form-control" name="lastname" value="{{lastname}}">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col">
+                <label for="password" class="for-label">Password</label>
+              <input type="password" class="form-control" name="password">
+              </div>
+
+              <div class="col">
+                 <label for="repassword" class="for-label">Re-Password</label>
+              <input type="password" class="form-control" name="repassword">
+              </div>
+
+            </div>
+
+
+            <input type="submit" value="Register" class="btn btn-primary">
+          </form>
+      </div>
+       </div>
     {% endblock %}
   </body>
 </html>
