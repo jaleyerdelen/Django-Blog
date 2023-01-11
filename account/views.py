@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
 def login_request(request):
-    if login.user.is_authenticated:
+    if request.user.is_authenticated:
         return("home")
 
     if request.method == 'POST':
@@ -23,7 +23,7 @@ def login_request(request):
     return render(request, "account/login.html")
 
 def register_request(request):
-    if login.user.is_authenticated:
+    if request.user.is_authenticated:
         return("home")
 
     if request.method == "POST":
