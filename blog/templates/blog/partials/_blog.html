@@ -7,10 +7,10 @@
               <div class="col-md-9">
                 <div class="card-body">
                   <h5 class="card-title">
-                    <a href="{% url 'blog_details' blog.slug %}">{{ blog.title }}</a>
+                    <a href="{% url 'blog_details' blog.slug %}" style="text-decoration: none; color:darkslategrey">{{ blog.title }}</a>
                   </h5>
                   <p class="card-text">
-                    {{ blog.description|striptags|slice:"0:50" }}
+                    {{ blog.description|striptags|slice:"0:50"|safe }}
                   </p>
                 </div>
               </div>
